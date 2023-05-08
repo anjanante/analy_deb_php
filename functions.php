@@ -6,7 +6,7 @@
  * @var array
  */
 $config = [
-    'name' => 'My PHP Analyse and Debug',
+    'name' => 'NantConstruction',
 ];
 
 /**
