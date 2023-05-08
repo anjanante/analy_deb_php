@@ -6,7 +6,7 @@
  * @var array
  */
 $config = [
-    'name' => 'My PHP Analyse and Debug',
+    'name' => 'NantConstruction',
 ];
 
 /**
@@ -37,7 +37,7 @@ function pageTitle()
  */
 function pageContent()
 {
-    $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+    $page = $_GET['page'] ?? 'home';
 
     $path = getcwd().'/pages/'.$page.'.php';
 
