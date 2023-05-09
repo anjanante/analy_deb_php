@@ -47,3 +47,14 @@ function pageContent()
         include 'pages/404.php';
     }
 }
+
+/**
+ * get active class for header link
+ * @param $s_page
+ */
+function activePage($s_page){
+    $page = $_GET['page'] ?? 'home';
+    if($page == $s_page)
+        return 'active';
+    return '';
+}

@@ -20,11 +20,11 @@
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/?page=about-us">About</a></li>
-                <li><a href="/?page=services">Services</a></li>
-                <li><a href="/?page=projects">Projects</a></li>
-                <li><a href="/?page=blog">Blog</a></li>
+                <li><a href="/" class="<?php echo activePage('home') ?>">Home</a></li>
+                <li><a href="/?page=about-us" class="<?php echo activePage('about-us') ?>">About</a></li>
+                <li><a href="/?page=services" class="<?php echo activePage('services') ?>">Services</a></li>
+                <li><a href="/?page=projects" class="<?php echo activePage('projects') ?>">Projects</a></li>
+                <li><a href="/?page=blog" class="<?php echo activePage('blog') ?>">Blog</a></li>
 <!--                <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>-->
 <!--                    <ul>-->
 <!--                        <li><a href="#">Dropdown 1</a></li>-->
@@ -42,7 +42,7 @@
 <!--                        <li><a href="#">Dropdown 4</a></li>-->
 <!--                    </ul>-->
 <!--                </li>-->
-                <li><a href="/?page=contact-us">Contact</a></li>
+                <li><a href="/?page=contact-us" class="<?php echo activePage('contact-us') ?>">Contact</a></li>
             </ul>
         </nav><!-- .navbar -->
     </div>
