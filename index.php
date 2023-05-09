@@ -7,10 +7,6 @@ $page = $_GET['page'] ?? 'home';
 <head>
     <meta charset="utf-8"/>
     <?php require 'head.php'; ?>
-    <!--    <style type="text/css">-->
-    <!--        .wrap { max-width: 700px; margin: 50px auto; padding: 30px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,.5); }-->
-    <!--        article { text-align: left; padding: 40px; }-->
-    <!--    </style>-->
 </head>
 <body>
     <?php
@@ -53,12 +49,12 @@ $page = $_GET['page'] ?? 'home';
             </div>
         </section><!-- End Hero Section -->
     <?php endif; ?>
-
+    <main id="main">
     <!--    <article>-->
     <!--        <h3>--><?php //pageTitle(); ?><!--</h3>-->
-    <!--        --><?php //pageContent(); ?>
+            <?php pageContent(); ?>
     <!--    </article>-->
-
+    </main><!-- End #main -->
     <?php require('footer.php'); ?>
 </body>
 </html>
