@@ -52,9 +52,11 @@ function pageContent()
  * get active class for header link
  * @param $s_page
  */
-function activePage($s_page){
+function activePage($s_page)
+{
     $page = $_GET['page'] ?? 'home';
-    if($page == $s_page)
+    if($page == $s_page) {
         return 'active';
+    }
     return '';
 }

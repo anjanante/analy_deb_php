@@ -11,8 +11,8 @@ $page = $_GET['page'] ?? 'home';
 <body>
     <?php
     require 'header.php';
-    if ($page == 'home'):
-        ?>
+if ($page == 'home'):
+    ?>
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="hero">
             <div class="info d-flex align-items-center">
@@ -51,7 +51,7 @@ $page = $_GET['page'] ?? 'home';
     <?php endif; ?>
     <main id="main">
     <!--    <article>-->
-    <!--        <h3>--><?php //pageTitle(); ?><!--</h3>-->
+    <!--        <h3>--><?php //pageTitle();?><!--</h3>-->
             <?php pageContent(); ?>
     <!--    </article>-->
     </main><!-- End #main -->
