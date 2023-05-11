@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "phploc/phploc": "^7.0"
+    },
+    "require": {
+        "phpmd/phpmd": "^2.13"
     }
 }
