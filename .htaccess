@@ -1,0 +1,3 @@
+RewriteEngine On # Activer le module Rewrite
+RewriteRule ^produits/?$ produits.php [NC,L]Connexco
+RewriteRule ^[^/]+/(\d+)$ produits.php?id=$1

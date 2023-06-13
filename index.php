@@ -1,5 +1,6 @@
 <?php
 require 'functions.php';
+require 'config/db_connect.php';
 $page = $_GET['page'] ?? 'home';
 ?>
 <!DOCTYPE html>
