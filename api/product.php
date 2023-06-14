@@ -13,17 +13,23 @@ var_dump($request_method);
 switch ($request_method) {
     case 'GET':
         if (!empty($_GET["id"])) {
-            // Récupérer un seul produit
+            // get product
             $id = intval($_GET["id"]);
             getProduct($id);
         } else {
-            // Récupérer tous les produits
+            // get all products
             getProducts();
         }
         break;
     case 'POST':
-        // Ajouter un produit
+        // Add a product
         AddProduct();
+        break;
+
+    case 'PUT':
+        // Update a product
+        $id = intval($_GET["id"]);
+        updateProduct($id);
         break;
     default:
         // Requête invalide
@@ -62,7 +68,9 @@ function getProduct($id=0)
     echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-
+/**
+ * Add a product
+ */
 function AddProduct()
 {
     global $oConn;
@@ -92,4 +100,43 @@ function AddProduct()
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+
+/**
+ * Update a product
+ * @param $id
+ */
+function updateProduct($id)
+{
+    global $oConn;
+    $_PUT = array();
+    parse_str(file_get_contents('php://input'), $_PUT);//get data by the input flow
+    $name   = $_PUT["name"];
+    $description = $_PUT["description"];
+    $price  = $_PUT["price"];
+    $category = $_PUT["category"];
+
+    $query = "UPDATE produit SET name=:name, description=:description, price=:price, category_id=:category, modified=NOW() WHERE id=:id";
+
+    $stmt       = $oConn->prepare($query);
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':price', $price);
+    $stmt->bindParam(':category', $category);
+    $stmt->bindParam(':id', $id);
+
+    if ($stmt->execute()) {
+        $response = array(
+            'status' => 1,
+            'status_message' => 'Produit mis a jour avec succes.'
+        );
+    } else {
+        $response = array(
+            'status' => 0,
+            'status_message' => 'Echec de la mise a jour de produit. ' . mysqli_error($oConn)
+        );
+    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
+
 
