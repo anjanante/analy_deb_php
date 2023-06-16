@@ -1,0 +1,6 @@
+RewriteEngine On # Activer le module Rewrite
+#RewriteRule ^product/?$ product.php [NC,L]
+#RewriteRule ^[^/]+/(\d+)$ product.php?id=$1
+RewriteCond %{REQUEST_FILENAME} !-f
+# On peut enlever le .php et renommer les pages comme on le souhaite
+RewriteRule ^([^\.]+)$ $1.php [L]
