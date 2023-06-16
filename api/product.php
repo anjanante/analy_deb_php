@@ -94,7 +94,7 @@ function AddProduct()
     } else {
         $response = array(
             'status' => 0,
-            'status_message' => 'Error!.' . mysqli_error($oConn)
+            'status_message' => 'Error!.'
         );
     }
     header('Content-Type: application/json');
@@ -132,7 +132,7 @@ function updateProduct($id)
     } else {
         $response = array(
             'status' => 0,
-            'status_message' => 'Echec de la mise a jour de produit. ' . mysqli_error($oConn)
+            'status_message' => 'Echec de la mise a jour de produit. '
         );
     }
     header('Content-Type: application/json');

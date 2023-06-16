@@ -8,10 +8,9 @@
 
 //$url = 'http://127.0.0.1/api/product';
 $domain =  $_SERVER['HTTP_HOST'];
-$url = 'http://'.$domain.'/api/product.php';
+$url = 'http://'.$domain.'api/product.php';
 $data = array('name' => 'PEC', 'description' => 'Pencil 2H', 'price' => '2.25', 'category' => '9');
 
-// utilisez 'http' même si vous envoyez la requête sur https:// ...
 $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
