@@ -8,8 +8,8 @@
 
 //$url = 'http://127.0.0.1/api/product';
 $domain =  $_SERVER['HTTP_HOST'];
-$url = 'http://'.$domain.'api/product.php';
-$data = array('name' => 'PEC', 'description' => 'Pencil 2H', 'price' => '2.25', 'category' => '9');
+$url = 'http://'.$domain.'/api/product.php';
+$data = array('name' => 'OLA', 'description' => 'POPA ji', 'price' => '2', 'category' => '5');
 
 $options = array(
     'http' => array(

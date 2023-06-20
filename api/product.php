@@ -9,7 +9,6 @@
 include($_SERVER["DOCUMENT_ROOT"]."/config/db_connect.php");
 $request_method = $_SERVER["REQUEST_METHOD"];
 var_dump($request_method);
-
 switch ($request_method) {
     case 'GET':
         if (!empty($_GET["id"])) {
