@@ -53,7 +53,7 @@ if ($page == 'home'):
     <main id="main">
     <!--    <article>-->
     <!--        <h3>--><?php //pageTitle();?><!--</h3>-->
-            <?php pageContent(); ?>
+            <?php echo pageContent(); ?>
     <!--    </article>-->
     </main><!-- End #main -->
     <?php require('footer.php'); ?>

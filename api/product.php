@@ -111,8 +111,9 @@ function AddProduct()
 function updateProduct($id)
 {
     global $oConn;
-    $_PUT = array();
-    parse_str(file_get_contents('php://input'), $_PUT);//get data by the input flow
+    // $_PUT = array();
+    // parse_str(file_get_contents('php://input'), $_PUT);//get data by the input flow
+    $_PUT = get_object_vars(json_decode(file_get_contents('php://input')));//get data json
     $name   = $_PUT["name"];
     $description = $_PUT["description"];
     $price  = $_PUT["price"];

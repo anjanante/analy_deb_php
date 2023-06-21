@@ -15,7 +15,7 @@ $config = [
 function siteName()
 {
     global $config;
-    echo $config['name'];
+    return $config['name'];
 }
 
 /**
@@ -26,8 +26,7 @@ function siteName()
 function pageTitle()
 {
     $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : 'home';
-
-    echo ucwords(str_replace('-', ' ', $page));
+    return ucfirst(str_replace('-', ' ', $page));
 }
 
 /**
@@ -38,14 +37,8 @@ function pageTitle()
 function pageContent()
 {
     $page = $_GET['page'] ?? 'home';
-
     $path = getcwd().'/pages/'.$page.'.php';
-
-    if (file_exists($path)) {
-        include $path;
-    } else {
-        include 'pages/404.php';
-    }
+    return file_exists($path) ? file_get_contents($path) : file_get_contents('pages/404.php');
 }
 
 /**
