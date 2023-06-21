@@ -9,28 +9,11 @@
 $domain =  $_SERVER['HTTP_HOST'];
 $id  = 1;
 $url = 'http://'.$domain.'/api/product.php?id='.$id;
-$data = array('name' => 'MAC', 'description' => 'Ordinateur portable', 'price' => '9658', 'category' => '2');
-$jsonData = json_encode($data);
-var_dump($url);
-
-// Config
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
-curl_setopt($curl, CURLOPT_POSTFIELDS, $jsonData);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-    'Content-Type: application/json',
-    'Content-Length: ' . strlen($jsonData),
-));
-// Execute request
-$response = curl_exec($curl);
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
+$response  = curl_exec($ch);
 var_dump($response);
-// check error
-if ($response === false) {
-    $error = curl_error($curl);
-     die('Erreur cURL : ' . $error);
-}
-curl_close($curl);
-if ($response !== false) {
-     var_dump("Success response");
-}
+curl_close($ch);
