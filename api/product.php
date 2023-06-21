@@ -9,7 +9,6 @@
 include($_SERVER["DOCUMENT_ROOT"]."/config/db_connect.php");
 $request_method = $_SERVER["REQUEST_METHOD"];
 var_dump($request_method);
-
 switch ($request_method) {
     case 'GET':
         if (!empty($_GET["id"])) {
@@ -25,11 +24,15 @@ switch ($request_method) {
         // Add a product
         AddProduct();
         break;
-
     case 'PUT':
         // Update a product
         $id = intval($_GET["id"]);
         updateProduct($id);
+        break;
+    case 'DELETE':
+        // Supprimer un produit
+        $id = intval($_GET["id"]);
+        deleteProduct($id);
         break;
     default:
         // Requête invalide
@@ -127,16 +130,42 @@ function updateProduct($id)
     if ($stmt->execute()) {
         $response = array(
             'status' => 1,
-            'status_message' => 'Produit mis a jour avec succes.'
+            'status_message' => 'Product successfully updated.'
         );
     } else {
         $response = array(
             'status' => 0,
-            'status_message' => 'Echec de la mise a jour de produit. '
+            'status_message' => 'Error update. '
         );
     }
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+
+/**
+ * delete product
+ * @param $id
+ */
+function deleteProduct($id)
+{
+    global $oConn;
+    $query = "DELETE FROM produit WHERE id=:id";
+    $stmt       = $oConn->prepare($query);
+    $stmt->bindParam(':id', $id);
+    if ($stmt->execute()) {
+        $response = array(
+            'status' => 1,
+            'status_message' => 'Product successfully removed.'
+        );
+    } else {
+        $response = array(
+            'status' => 0,
+            'status_message' => 'Product removal failed. '
+        );
+    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
+
 
 
