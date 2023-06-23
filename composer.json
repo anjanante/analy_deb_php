@@ -3,7 +3,9 @@
         "phploc/phploc": "^7.0",
         "squizlabs/php_codesniffer": "^3.7",
         "friendsofphp/php-cs-fixer": "^3.16",
-        "codeception/codeception": "^5.0"
+        "codeception/codeception": "^5.0",
+        "codeception/module-phpbrowser": "*",
+        "codeception/module-asserts": "*"
     },
     "require": {
         "phpmd/phpmd": "^2.13",
